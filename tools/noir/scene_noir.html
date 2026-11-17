@@ -1,0 +1,12 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Westhaven Noir</title>
+<link rel="stylesheet" href="fonts.css">
+<style>html,body{margin:0;background:#000}canvas{display:block}</style></head>
+<body><canvas id="c" width="1080" height="1920"></canvas>
+<script src="engine.js"></script>
+<script>
+// Carga el archivo de escenas indicado en ?s=archivo.js (por defecto scenes_demo.js)
+window.ready=(async()=>{const s=new URLSearchParams(location.search).get('s')||'scenes_demo.js';
+  await Promise.all(["600 120px Cinzel","500 60px Cormorant","italic 500 60px Cormorant"].map(f=>document.fonts.load(f)));
+  await new Promise((ok,err)=>{const e=document.createElement('script');e.src=s;e.onload=ok;e.onerror=err;document.body.appendChild(e)});
+  renderAt(0);return window.DURATION})();
+</script></body></html>
