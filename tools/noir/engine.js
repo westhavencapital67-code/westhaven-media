@@ -99,7 +99,7 @@ function serifLine(s,y,t0,t1,t,o={}){const a=vis(t,t0,t1,.45,.45);if(a<=0)return
 // captions (discreet serif, word highlight)
 let CAP=[];function buildCaps(SEG){CAP=[];for(const [a,b,txt] of SEG){const w=txt.split(' ');const ch=[];for(let i=0;i<w.length;i+=5)ch.push(w.slice(i,i+5));const tot=w.join(' ').length;let t=a;for(const c of ch){const d=(b-a)*c.join(' ').length/tot;CAP.push([t,t+d,c]);t+=d}}}
 function caption(t){let cur=null;for(const c of CAP)if(t>=c[0]-.08&&t<c[1]+.25)cur=c;if(!cur)return;const [a,b,words]=cur;const n=words.length;const wi=Math.min(n-1,Math.floor(prog(t,a,b)*n));
-  ctx.save();ctx.font=`italic 500 54px ${SERIF}`;const ws=words.map(w=>ctx.measureText(w).width);const sp=14;const tot=ws.reduce((s,v)=>s+v,0)+sp*(n-1);let x=W/2-tot/2-20;const y=1470;
+  ctx.save();ctx.font=`italic 500 54px ${SERIF}`;const ws=words.map(w=>ctx.measureText(w).width);const sp=14;const tot=ws.reduce((s,v)=>s+v,0)+sp*(n-1);let x=W/2-tot/2-20;const y=1400;
   ctx.globalAlpha=eOut(prog(t,a-.08,a+.15))*(1-prog(t,b+.1,b+.25));ctx.shadowColor='rgba(0,0,0,.9)';ctx.shadowBlur=18;
   for(let i=0;i<n;i++){ctx.fillStyle=i===wi?(TH.dark?'#FFFFFF':'#0A0A0D'):(TH.dark?'rgba(242,240,236,.55)':'rgba(10,10,13,.5)');if(i===wi&&TH.dark){ctx.shadowColor=BLUE2;ctx.shadowBlur=22}else{ctx.shadowColor='rgba(0,0,0,.6)';ctx.shadowBlur=12}ctx.fillText(words[i],x,y);x+=ws[i]+sp}ctx.restore()}
 

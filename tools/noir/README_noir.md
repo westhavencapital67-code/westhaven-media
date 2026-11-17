@@ -12,7 +12,7 @@ Referencia favorita: @c.o.r.e.labs. El toque propio de Westhaven es el **azul re
 - **Tipografía.**
   - Palabra clave en Cinzel (versalitas romanas) que entra con desenfoque y sale disolviéndose en partículas.
   - Frases secundarias en Cormorant itálica.
-  - Subtítulos discretos en Cormorant itálica de 54 px a y=1470, con la palabra actual en blanco y brillo azul.
+  - Subtítulos discretos en Cormorant itálica de 54 px a y=1400, con la palabra actual en blanco y brillo azul.
 - **Movimiento.**
   - Todo con aceleración y desaceleración (eIO, eOutExpo).
   - Push-in lento de 3.5 % por escena.
@@ -35,6 +35,12 @@ Referencia favorita: @c.o.r.e.labs. El toque propio de Westhaven es el **azul re
 
 - No uses `ctx.filter='blur()'` sobre humanoides o piezas 3D: cada línea se desenfoca por separado y el render se congela. Para desvanecer, usa alpha y desplazamiento.
 - Las palabras clave se reducen solas hasta 760 px de ancho (zona segura).
+- **Zona segura de TikTok (corrección del dueño, 16 nov):** la barra "Siguiendo / Para ti" tapa la parte de arriba.
+  - Las palabras clave van con línea base en y=470 (mínimo 460). Medido en captura real del celular: la barra "Siguiendo / Para ti" cubre hasta y≈300 del video y la hora/batería hasta y≈130.
+  - Las frases secundarias van en y≈565.
+  - Los subtítulos van en y=1400.
+  - Nada importante debajo de y=1450. Los iconos de la derecha ocupan x>930 entre y≈920 y y≈1790.
+  - La plantilla base ya corregida es `scenes_demo.js` (= video 04, day trading).
 
 ## Flujo por video
 
